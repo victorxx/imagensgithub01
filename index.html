@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Título da página -->
+        <title>Galeria de Imagens - Humor</title>
+
+        <!-- Meta Description para SEO -->
+        <meta name="description" content="Confira uma galeria de imagens engraçadas e humorísticas. Sorria com essas imagens e compartilhe o bom humor.">
+
+        <!-- Meta Keywords para SEO -->
+        <meta name="keywords" content="humor, piada, imagens engraçadas, galeria de imagens, risada, imagens de humor">
+
+        <!-- Meta Author (autor da página) -->
+        <meta name="author" content="VictorXX">
+
+        <!-- Meta Robots (para controlar indexação) -->
+        <meta name="robots" content="index, follow">
+
+        <!-- Meta Open Graph para compartilhar nas redes sociais -->
+        <meta property="og:title" content="Galeria de Imagens - Humor">
+        <meta property="og:description" content="Confira uma galeria de imagens engraçadas e humorísticas. Sorria com essas imagens e compartilhe o bom humor.">
+        <meta property="og:image" content="https://via.placeholder.com/300x300?text=Humor+Imagem">
+        <meta property="og:url" content="https://example.com">
+        <meta property="og:type" content="website">
+
+        <!-- Meta Twitter Card (para Twitter) -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Galeria de Imagens - Humor">
+        <meta name="twitter:description" content="Confira uma galeria de imagens engraçadas e humorísticas. Sorria com essas imagens e compartilhe o bom humor.">
+        <meta name="twitter:image" content="https://via.placeholder.com/300x300?text=Humor+Imagem">
+
+        <!-- Favicon (ícone da página) -->
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #000;
+                color: white;
+                margin: 0;
+                padding: 0;
+            }
+
+            #ok {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                padding: 20px;
+            }
+
+            a {
+                margin: 10px;
+                display: block;
+            }
+
+            img {
+                border: 5px solid white;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            img:hover {
+                transform: scale(1.1);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="ok"></div>
+
+        <script>
+            // Função para adicionar imagens dinamicamente
+            function adicionarImagens() {
+                // Formatos de imagens disponíveis
+                const formatos = ["jpg", "png", "webp", "gif", "svg", "tiff", "bmp"];
+                
+                // Número de imagens que você quer adicionar
+                const quantidadeImagens = 10; // Exemplo, você pode alterar esse número para o que quiser
+                
+                // Loop para gerar imagens em diferentes formatos
+                for (let i = 1; i <= quantidadeImagens; i++) {
+                    // Para cada formato, cria um link e uma imagem
+                    formatos.forEach(format => {
+                        const caminhoImagem = `${i}.${format}`;  // Caminho local da imagem
+                        
+                        // Criar a tag <img>
+                        let img = document.createElement('img');
+                        img.src = caminhoImagem;  // Imagem com o caminho dinâmico
+                        img.alt = `Imagem engraçada ${i} - ${format}`;
+                        img.width = 300;
+                        img.height = 300;
+
+                        // Adicionar evento de erro para verificar se a imagem existe
+                        img.onerror = function() {
+                            // Se a imagem não carregar, remover a tag <img> da página
+                            img.style.display = 'none';
+                        };
+
+                        // Criar a tag <a>
+                        let link = document.createElement('a');
+                        link.href = 'https://victorxx.github.io/redirecionadorlinksgit1/';  // Link externo
+                        link.target = '_blank'; // Abre o link em uma nova aba
+
+                        // Adicionar a imagem à tag <a>
+                        link.appendChild(img);
+
+                        // Adicionar o link à div#ok
+                        document.getElementById('ok').appendChild(link);
+                    });
+                }
+            }
+
+            // Chamar a função para adicionar as imagens de humor
+            adicionarImagens();
+        </script>
+    </body>
+</html>
